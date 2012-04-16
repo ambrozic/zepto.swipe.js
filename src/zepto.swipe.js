@@ -1,5 +1,5 @@
 /*
- * swipe.js -  zepto plugin for minimal implementation of swipe functionality
+ * zepto.swipe.js -  zepto plugin for minimal implementation of swipe functionality
  *
  * (c) Gregor Ambrozic (sensehack.com)
  * 
