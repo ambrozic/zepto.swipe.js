@@ -7,6 +7,6 @@ zepto.swipe.js - zepto plugin for minimal implementation of swipe functionality
 ###usage###
     $(selector).swipe({
         status:function (event, phase, direction, distance) {
-            // here goes your code
+            //here goes your code
         })
     });

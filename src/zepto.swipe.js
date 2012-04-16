@@ -84,10 +84,11 @@
             function swipeCancel(event) {
                 phase = CANCEL;
                 if (options.status) options.status.call($self, event, phase);
+                start = {x:0, y:0}, end = {x:0, y:0}, delta = {x:0, y:0}, distance = {x:0, y:0}, direction = undefined, touches = 0;
             }
 
             self.addEventListener((touchable) ? "touchstart" : "mousedown", swipeStart, false);
-            self.addEventListener("touchstart", swipeCancel, false);
+            self.addEventListener("touchcancel", swipeCancel, false);
         });
     }
 })(window.Zepto);
