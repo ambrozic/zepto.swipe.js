@@ -41,11 +41,11 @@
 
                 var angle = Math.round(Math.atan2(end.y - start.y, start.x - end.x) * 180 / Math.PI);
                 if (angle < 0) angle = 360 - Math.abs(angle);
-                if ((angle <= 45) && (angle >= 0) || (angle <= 360) && (angle >= 315)) {
+                if ((angle <= 360) && (angle >= 315) || (angle <= 45) && (angle >= 0)) {
                     direction = LEFT;
-                } else if ((angle >= 135) && (angle <= 225)) {
+                } else if ((angle <= 225) && (angle >= 135)) {
                     direction = RIGHT;
-                } else if ((angle > 45) && (angle < 135)) {
+                } else if ((angle < 135) && (angle > 45)) {
                     direction = DOWN;
                 } else {
                     direction = UP;
