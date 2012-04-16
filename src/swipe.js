@@ -17,8 +17,8 @@
             RIGHT = "right",
             UP = "up",
             DOWN = "down",
-            phase = START
-            ;
+            phase = START;
+
         return this.each(function () {
             var self = this,
                 $self = $(this),
@@ -27,8 +27,7 @@
                 delta = {x:0, y:0},
                 distance = {x:0, y:0},
                 direction = undefined,
-                touches = 0
-                ;
+                touches = 0;
 
             function validate(event) {
                 var evt = touchable ? event.touches[0] : event;
