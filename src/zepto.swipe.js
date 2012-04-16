@@ -2,7 +2,7 @@
  * zepto.swipe.js -  zepto plugin for minimal implementation of swipe functionality
  *
  * (c) Gregor Ambrozic (sensehack.com)
- * 
+ *
  * @version 0.1
  */
 
@@ -13,6 +13,7 @@
             START = "start",
             MOVE = "move",
             END = "end",
+            CANCEL = "cancel",
             LEFT = "left",
             RIGHT = "right",
             UP = "up",
@@ -66,11 +67,12 @@
             }
 
             function swipeMove(event) {
-                //todo implement page scrolling
-                event.preventDefault();
                 if (phase === END) return;
                 phase = MOVE;
                 validate(event);
+                //todo implement page scrolling
+                if (direction === LEFT || direction === RIGHT)
+                    event.preventDefault();
                 if (options.status) options.status.call($self, event, phase, direction, distance);
             }
 
@@ -79,7 +81,13 @@
                 if (options.status) options.status.call($self, event, phase, direction, distance);
             }
 
+            function swipeCancel(event) {
+                phase = CANCEL;
+                if (options.status) options.status.call($self, event, phase);
+            }
+
             self.addEventListener((touchable) ? "touchstart" : "mousedown", swipeStart, false);
+            self.addEventListener("touchstart", swipeCancel, false);
         });
     }
 })(window.Zepto);
